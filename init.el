@@ -22,6 +22,7 @@
 			   smartparens
 			   js2-mode
 			   nodejs-repl
+			   popwin
 			   ) "Default packages")
 
 (setq package-selected-packages qiranlw/packages)
@@ -75,6 +76,11 @@
 ;; 显示行号
 (global-linum-mode 1)
 
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("qr" "qiranlw")
+					    ))
+
 ;; 定义打开配置文件方法
 (defun open-my-init-file ()
   (interactive)
@@ -91,6 +97,7 @@
 
 ;; 关闭备份文件
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;; 加载 org 模式，支持代码块语法高亮
 (require 'org)
@@ -118,6 +125,16 @@
 
 ;; 启动 monokai 主题
 (load-theme 'monokai t)
+
+(global-set-key (kbd "C-h C-f") 'find-function)
+(global-set-key (kbd "C-h C-v") 'find-variable)
+(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+
+(setq org-agenda-files '("~/org/"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+(require 'popwin)
+(popwin-mode t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
