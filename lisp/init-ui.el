@@ -16,12 +16,12 @@
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 
 ;; 设置英文字体
-(set-face-attribute 'default nil :font "Monaco 14")
+(set-face-attribute 'default nil :font "Monaco 16")
 ;; 设置中文字体
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
-		    charset (font-spec :family "Microsoft Yahei UI"
-				       :size 21)))
-
+  charset (font-spec :family "思源黑体 Normal"
+		     :size 20)))
 
 (provide 'init-ui)
+
